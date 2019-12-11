@@ -1,0 +1,18 @@
+#!/bin/bash
+
+TODO_FILE="$HOME/todo.md"
+
+case "$1" in
+	-e|--edit)
+		${EDITOR:-vi} $TODO_FILE
+		;;
+	*)
+		if [ -n "$(which bat)" ]; then
+			bat $TODO_FILE --paging=never --color=always
+		else
+			echo "please install bat" >&2
+			cat $TODO_FILE
+		fi
+		;;
+esac
+
