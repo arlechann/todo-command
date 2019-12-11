@@ -2,6 +2,14 @@
 
 TODO_FILE="$HOME/todo.md"
 
+if [ "$1" == "-f" || "$1" == "--file" ]; then
+	if [ -z "$2" ]; then
+		exit 1
+	fi
+	TODO_FILE="$2"
+	shift 2
+fi
+
 case "$1" in
 	-e|--edit)
 		shift
