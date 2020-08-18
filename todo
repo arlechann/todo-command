@@ -23,6 +23,8 @@ esac
 
 if [ -n "$(which bat)" ]; then
 	bat $TODO_FILE --paging=never --color=always
+elif [ -n "$(which batcat)" ]; then
+	batcat $TODO_FILE --paging=never --color=always
 else
 	echo "please install bat" >&2
 	cat $TODO_FILE
